@@ -28,7 +28,7 @@ $port =~ /^\d+$/ or $noport						or die "Usage: $0 -port=PORT COMMAND\n";
 
 if ($port)
 {
-    $addr = pack(CnC, 127, $<, 1);
+    $addr = pack(CCCC, 127, 0, 0, 1);
     print "solo: bind ", join(".", unpack(C4, $addr)), ":$port\n"	if $verbose;
 
     $^F = 10;			# unset close-on-exec
